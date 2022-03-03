@@ -5,31 +5,41 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField]private int speed = 10;
+    [SerializeField] private int speed = 10;
+    [SerializeField] private GroundCheck groundcheck;
 
     void Start()
     {
         rb = gameObject.GetComponentInChildren<Rigidbody2D>();
+        groundcheck = gameObject.GetComponentInChildren<GroundCheck>();
+
     }
 
     void Update()
     {
-
+        //up to change (new unity input system)
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity += new Vector2(-speed,0) * Time.deltaTime;
+            transform.position += new Vector3(-speed, 0, 0) * Time.deltaTime;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            rb.velocity += new Vector2(speed * 10, 0) * Time.deltaTime;
+            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity += new Vector2(speed, 0) * Time.deltaTime;
+            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            rb.velocity += new Vector2(-speed * 10, 0) * Time.deltaTime;
+            transform.position += new Vector3(-speed, 0, 0) * Time.deltaTime;
+        }
+
+
+        //up to change (maybe use own gravity)
+        if (Input.GetKey(KeyCode.Space) && groundcheck.canjump)
+        {
+            rb.velocity = new Vector3(0, 10, 0);
         }
     }
 }
