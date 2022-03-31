@@ -1,0 +1,16 @@
+project tower:
+
+//
+use cards for abilities
+maybe random
+or buying them
+
+but the gist of is that you can use cards and then abilities will activate with a sick animation ant effect
+one time use abilities on top of the default ones
+or perma that last 10 sec or so
+
+you draw them from a deck
+or you buy them in a shop and have certain ones
+
+or you buy them and the get drawn randomly from a deck
+//
